@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#video-background {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover; /* Ensure video covers the entire container */
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6) /* Add a semi-transparent background on top of the video */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: linear-gradient(355deg, #FFFFFF, #F2F2F2, #E5E5E5, #D8D8D8, #CCCCCC, #BFBFBF);
+    margin: 20px auto; /* Adjust margin for spacing */
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    text-align: center; /* Center text within the container */
+}
+
+.todo-app h2 {
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text horizontally */
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img {
+    width: 50px;
+    margin-left: 10px;
+    border-radius: 100px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(360deg, #F2F2F2, #E5E5E5, #D8D8D8, #CCCCCC, #BFBFBF);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    text-align: left; /* Align text to the left */
+}
+
+::placeholder {
+    color: #666666;
+    text-align: center;
+    opacity: 1;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: medium;
+    font-weight: 100px;
+    color: #666666;
+    word-wrap: break-word;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0), 5px 5px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, #1ee4e4, #ffffff); /* Blue to White gradient background */
+    color: black; /* Text color */
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+
+
+button.clear-btn {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    background: linear-gradient(355deg, #F2F2F2, #E5E5E5, #D8D8D8, #CCCCCC, #BFBFBF);
+    color: #333333;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked-box.png);
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #29a9a9;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(images/checked-box.png);
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span.edit-btn {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #0694d6;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+ul li span.edit-btn:hover {
+    background: transparent;
+}
+
+ul li span:hover {
+    background: transparent;
+}
+
+@media screen and (max-width: 767px) {
+    .todo-app {
+        width: 90%;
+        max-width: none;
+        margin: 50px auto 20px;
+        padding: 30px;
+    }
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .row button {
+        margin-top: 20px;
+    }
+    .buttons-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        padding: 10px;
+    }
+    .buttons-row .clear-btn {
+        flex: 1;
+        margin-bottom: 10px;
+    }
+}
